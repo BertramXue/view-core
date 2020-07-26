@@ -1,0 +1,52 @@
+$auto-complete-prefix-cls: '#{$view-core-prefix}-auto-complete';
+
+.#{$auto-complete-prefix-cls} {
+  width: 100%;
+  position: relative;
+
+  .#{$auto-complete-prefix-cls}-loading {
+    position: absolute;
+    z-index: 100;
+    top: calc(100% + 8px);
+    left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 75px;
+    border: $menu-border-width solid $menu-border-color;
+    box-shadow: $submenu-box-shadow;
+    background-color: $white;
+  }
+
+  .#{$auto-complete-prefix-cls}-list {
+    position: absolute;
+    z-index: 100;
+    top: calc(100% + 8px);
+    left: 0;
+    width: 100%;
+    padding-left: 0;
+    list-style: none;
+    white-space: nowrap;
+    border: $menu-border-width solid $menu-border-color;
+    box-shadow: $submenu-box-shadow;
+    background-color: $white;
+
+    .#{$auto-complete-prefix-cls}-list-item {
+      padding: $menu-item-padding-y $menu-item-padding-x;
+      cursor: pointer;
+      transition: $menu-transition;
+      color: $body-color;
+
+      &.#{$auto-complete-prefix-cls}-list-item-selected {
+        background: $menu-item-active-color;
+        color: $white;
+      }
+
+      &:hover {
+        background: $menu-item-active-color;
+        color: $white;
+      }
+    }
+  }
+}

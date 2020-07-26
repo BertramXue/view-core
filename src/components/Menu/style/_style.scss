@@ -1,0 +1,135 @@
+$menu-prefix-cls: '#{$view-core-prefix}-menu';
+
+.#{$menu-prefix-cls} {
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 0;
+  margin-bottom: 30px;
+  list-style: none;
+  box-shadow: none;
+
+  > .#{$menu-prefix-cls}-item,
+  > .#{$menu-prefix-cls}-submenu {
+    border-bottom: $menu-border-width solid $menu-border-color;
+    padding: $menu-item-padding-y $menu-item-padding-x;
+    cursor: pointer;
+    transition: $menu-transition;
+
+    &:hover,
+    &:focus {
+      text-decoration: none;
+      color: $menu-item-active-color;
+      border-color: $menu-item-active-color;
+    }
+
+    &-disabled {
+      color: $menu-item-disabled-color;
+      pointer-events: none;
+      cursor: default;
+    }
+
+    &-active {
+      color: $menu-item-active-color;
+      border-color: $menu-item-active-color;
+    }
+  }
+
+  .#{$menu-prefix-cls}-submenu {
+    &-title {
+      display: flex;
+      align-items: center;
+    }
+
+    &-disabled {
+      color: $menu-item-disabled-color;
+      pointer-events: none;
+      cursor: default;
+    }
+
+    &-active {
+      color: $menu-item-active-color;
+      border-color: $menu-item-active-color;
+    }
+
+    &-item {
+      display: none;
+      list-style: none;
+      padding-left: 0;
+      white-space: nowrap;
+
+      .#{$menu-prefix-cls}-item {
+        padding: $menu-item-padding-y $menu-item-padding-x;
+        cursor: pointer;
+        transition: $menu-transition;
+        color: $body-color;
+
+        &-active,
+        &:hover {
+          color: $menu-item-active-color !important;
+        }
+      }
+    }
+
+    &-open {
+      display: block;
+    }
+  }
+
+  &-horizontal {
+    .#{$menu-prefix-cls}-submenu {
+      position: relative;
+
+      &-item {
+        position: absolute;
+        background: $white;
+        z-index: 100;
+        top: calc(100% + 8px);
+        left: 50%;
+        transform: translate(-50%, 0);
+        border: $menu-border-width solid $menu-border-color;
+        box-shadow: $submenu-box-shadow;
+      }
+    }
+  }
+
+  &-vertical {
+    flex-direction: column;
+    margin: 10px 20px;
+    border-right: $border-width solid $menu-border-color;
+
+    .#{$menu-prefix-cls}-submenu {
+      border-bottom: 0px;
+      padding: 0 0 0 $menu-item-padding-x;
+
+      &-title {
+        padding: 8px 0;
+      }
+
+      .#{$menu-prefix-cls}-item {
+        &-active,
+        &:hover {
+          border-right: $menu-item-active-border-width solid
+            $menu-item-active-color !important;
+        }
+
+        &-active {
+          background-color: #e6f7fc;
+        }
+      }
+    }
+
+    .#{$menu-prefix-cls}-item {
+      border-bottom: 0px;
+
+      &-active,
+      &:hover {
+        border-right: $menu-item-active-border-width solid
+          $menu-item-active-color;
+      }
+
+      &-active {
+        background-color: #e6f7fc;
+      }
+    }
+  }
+}

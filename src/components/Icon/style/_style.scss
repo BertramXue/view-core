@@ -1,0 +1,7 @@
+$icon-prefix-cls: '#{$view-core-prefix}-icon';
+
+@each $key, $val in $theme-colors {
+  .#{$icon-prefix-cls}-#{$key} {
+    color: $val;
+  }
+}

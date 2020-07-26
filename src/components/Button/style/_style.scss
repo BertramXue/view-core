@@ -1,0 +1,165 @@
+$button-prefix-cls: '#{$view-core-prefix}-button';
+
+.#{$button-prefix-cls} {
+  position: relative;
+  display: inline-block;
+  font-weight: $btn-font-weight;
+  line-height: $btn-line-height;
+  color: $body-color;
+  white-space: nowrap;
+  text-align: center;
+  vertical-align: middle;
+  background-image: none;
+  border: $btn-border-width solid transparent;
+  @include button-size(
+    $btn-padding-x,
+    $btn-padding-y,
+    $btn-font-size,
+    $border-radius
+  );
+  box-shadow: $btn-box-shadow;
+  cursor: pointer;
+  transition: $btn-transition;
+
+  &-default {
+    @include button-style(
+      $white,
+      $gray-400,
+      $default,
+      $white,
+      $primary,
+      $primary
+    );
+  }
+
+  &-primary {
+    @include button-style($primary, $primary, $white);
+  }
+
+  &-success {
+    @include button-style($success, $success, $white);
+  }
+
+  &-info {
+    @include button-style($info, $info, $white);
+  }
+
+  &-link {
+    font-weight: $font-weight-normal;
+    color: $btn-link-color;
+    text-decoration: $link-decoration;
+    box-shadow: none;
+
+    &:hover {
+      color: $btn-link-hover-color;
+      text-decoration: $link-hover-decoration;
+    }
+
+    &.focus,
+    &:focus {
+      box-shadow: none;
+      text-decoration: $link-hover-decoration;
+    }
+
+    &-disabled,
+    &:disabled {
+      pointer-events: none;
+      color: $btn-link-disabled-color;
+    }
+  }
+
+  &-danger,
+  &-danger.#{$button-prefix-cls}-primry {
+    @include button-style($danger, $danger, $white);
+  }
+
+  &-danger.#{$button-prefix-cls}-default {
+    @include button-style($white, $danger, $danger);
+  }
+
+  &-danger.#{$button-prefix-cls}-success {
+    @include button-style($success, $success, $white);
+  }
+
+  &-danger.#{$button-prefix-cls}-info {
+    @include button-style($info, $info, $white);
+  }
+
+  &-danger.#{$button-prefix-cls}-link {
+    @include button-style(
+      transparent,
+      transparent,
+      $danger,
+      transparent,
+      transparent,
+      $danger
+    );
+  }
+
+  &-disabled,
+  &[disabled] {
+    cursor: not-allowed;
+    opacity: $btn-disabled-opacity;
+    box-shadow: none;
+
+    > * {
+      pointer-events: none;
+    }
+  }
+
+  &-ghost {
+    background-color: transparent;
+  }
+
+  &-ghost.#{$button-prefix-cls}-default {
+    @include button-style(
+      transparent,
+      $white,
+      $white,
+      transparent,
+      $primary,
+      $primary
+    );
+  }
+
+  &-ghost.#{$button-prefix-cls}-primary {
+    @include button-style(transparent, $primary, $primary);
+  }
+
+  &-ghost.#{$button-prefix-cls}-success {
+    @include button-style(transparent, $success, $success);
+  }
+
+  &-ghost.#{$button-prefix-cls}-info {
+    @include button-style(transparent, $info, $info);
+  }
+
+  &-ghost.#{$button-prefix-cls}-link {
+    @include button-style(
+      transparent,
+      transparent,
+      $white,
+      transparent,
+      transparent,
+      $primary
+    );
+  }
+
+  &-lg {
+    @include button-size(
+      $btn-padding-x-lg,
+      $btn-padding-y-lg,
+      $btn-font-size-lg,
+      $border-radius-lg
+    );
+  }
+
+  &-sm {
+    @include button-size(
+      $btn-padding-x-sm,
+      $btn-padding-y-sm,
+      $btn-font-size-sm,
+      $border-radius-sm
+    );
+  }
+}
