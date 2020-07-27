@@ -3,6 +3,11 @@
   "name": "view-core",
   "version": "1.0.0",
   "author": "BertramXue",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "typings": "dist/index.d.ts",
+  "description": "A React UI Component Library",
+  "homepage": "",
   "keywords": [
     "React",
     "UI",
@@ -11,6 +16,7 @@
   "files": [
     "dist"
   ],
+  "license": "MIT",
   "scripts": {
     "start": "dumi dev",
     "docs:build": "dumi build",
@@ -20,11 +26,9 @@
     "release": "npm run build && npm publish",
     "prettier": "prettier --write \"**/*.{js,jsx,tsx,ts,less,md,json}\"",
     "test": "umi-test",
-    "test:coverage": "umi-test --coverage"
+    "test:coverage": "umi-test --coverage",
+    "prepublishOnly": "npm run test:coverage && pm run release"
   },
-  "main": "dist/index.js",
-  "module": "dist/index.esm.js",
-  "typings": "dist/index.d.ts",
   "gitHooks": {
     "pre-commit": "lint-staged"
   },

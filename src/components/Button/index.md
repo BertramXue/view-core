@@ -12,13 +12,35 @@ nav:
 import React from 'react';
 import { Button } from 'view-core';
 
+const hanldeClick = () => {
+  console.info('Button was clicked!');
+}
+
+const style = {
+  'marginRight': '25px'
+}
+ 
 export default () => (
   <div>
-    <Button btnType="default">default</Button>
-    <Button btnType="primary">primary</Button>
-    <Button btnType="success">success</Button>
-    <Button btnType="info">info</Button>
-    <Button btnType="link" href="http://www.baidu.com" className="link">
+    <Button 
+      btnType="default" 
+      style={style} 
+      onClick={hanldeClick}>
+      default
+    </Button>
+    <Button 
+      btnType="primary"
+      style={style} 
+      onClick={hanldeClick}>
+      primary
+    </Button>
+    <Button btnType="success" style={style}>success</Button>
+    <Button btnType="info" style={style}>info</Button>
+    <Button 
+      btnType="link" 
+      href="http://www.baidu.com"
+      style={style} 
+      className="link">
       link
     </Button>
   </div>
